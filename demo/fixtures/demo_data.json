@@ -1,0 +1,112 @@
+[
+  {
+    "model": "tenant_authx.tenant",
+    "pk": "11111111-1111-1111-1111-111111111111",
+    "fields": {
+      "name": "Acme Corporation",
+      "slug": "acme-corp",
+      "domain": "acme.localhost",
+      "is_active": true
+    }
+  },
+  {
+    "model": "tenant_authx.tenant",
+    "pk": "22222222-2222-2222-2222-222222222222",
+    "fields": {
+      "name": "TechStart Inc",
+      "slug": "techstart",
+      "domain": "techstart.localhost",
+      "is_active": true
+    }
+  },
+  {
+    "model": "tenant_authx.permission",
+    "pk": "aaaa1111-0000-0000-0000-000000000001",
+    "fields": {
+      "tenant": "11111111-1111-1111-1111-111111111111",
+      "codename": "orders.view_order",
+      "name": "Can view orders"
+    }
+  },
+  {
+    "model": "tenant_authx.permission",
+    "pk": "aaaa1111-0000-0000-0000-000000000002",
+    "fields": {
+      "tenant": "11111111-1111-1111-1111-111111111111",
+      "codename": "orders.add_order",
+      "name": "Can add orders"
+    }
+  },
+  {
+    "model": "tenant_authx.permission",
+    "pk": "aaaa1111-0000-0000-0000-000000000003",
+    "fields": {
+      "tenant": "11111111-1111-1111-1111-111111111111",
+      "codename": "orders.change_order",
+      "name": "Can change orders"
+    }
+  },
+  {
+    "model": "tenant_authx.permission",
+    "pk": "aaaa1111-0000-0000-0000-000000000004",
+    "fields": {
+      "tenant": "11111111-1111-1111-1111-111111111111",
+      "codename": "orders.delete_order",
+      "name": "Can delete orders"
+    }
+  },
+  {
+    "model": "tenant_authx.permission",
+    "pk": "aaaa1111-0000-0000-0000-000000000005",
+    "fields": {
+      "tenant": "11111111-1111-1111-1111-111111111111",
+      "codename": "settings.manage_tenant",
+      "name": "Can manage tenant settings"
+    }
+  },
+  {
+    "model": "tenant_authx.role",
+    "pk": "bbbb1111-0000-0000-0000-000000000001",
+    "fields": {
+      "tenant": "11111111-1111-1111-1111-111111111111",
+      "name": "Admin",
+      "description": "Full access to all features",
+      "permissions": [
+        "aaaa1111-0000-0000-0000-000000000001",
+        "aaaa1111-0000-0000-0000-000000000002",
+        "aaaa1111-0000-0000-0000-000000000003",
+        "aaaa1111-0000-0000-0000-000000000004",
+        "aaaa1111-0000-0000-0000-000000000005"
+      ],
+      "is_active": true
+    }
+  },
+  {
+    "model": "tenant_authx.role",
+    "pk": "bbbb1111-0000-0000-0000-000000000002",
+    "fields": {
+      "tenant": "11111111-1111-1111-1111-111111111111",
+      "name": "Staff",
+      "description": "Can view and manage orders",
+      "permissions": [
+        "aaaa1111-0000-0000-0000-000000000001",
+        "aaaa1111-0000-0000-0000-000000000002",
+        "aaaa1111-0000-0000-0000-000000000003"
+      ],
+      "is_active": true
+    }
+  },
+  {
+    "model": "tenant_authx.role",
+    "pk": "bbbb1111-0000-0000-0000-000000000003",
+    "fields": {
+      "tenant": "11111111-1111-1111-1111-111111111111",
+      "name": "Viewer",
+      "description": "Read-only access",
+      "permissions": [
+        "aaaa1111-0000-0000-0000-000000000001"
+      ],
+      "is_active": true
+    }
+  }
+]

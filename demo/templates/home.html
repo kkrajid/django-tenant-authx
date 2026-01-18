@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - Demo App{% endblock %}
+
+{% block content %}
+<h1>Welcome to Tenant AuthX Demo</h1>
+
+<div class="card">
+    <h2>Available Tenants</h2>
+    <p>Select a tenant to access:</p>
+    
+    {% if tenants %}
+    <ul style="margin-top: 15px;">
+        {% for tenant in tenants %}
+        <li style="margin-bottom: 10px;">
+            <a href="/t/{{ tenant.slug }}/" class="btn">{{ tenant.name }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p>No tenants available. Run the setup fixtures first.</p>
+    {% endif %}
+</div>
+
+<div class="card">
+    <h2>Getting Started</h2>
+    <ol style="margin-left: 20px;">
+        <li>Run migrations: <code>python manage.py migrate</code></li>
+        <li>Load fixtures: <code>python manage.py loaddata demo_data</code></li>
+        <li>Login with a demo user</li>
+        <li>Access a tenant dashboard</li>
+    </ol>
+</div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}{{ tenant.name }} Dashboard{% endblock %}
+
+{% block content %}
+<h1>{{ tenant.name }} Dashboard</h1>
+
+<div class="card">
+    <h2>Your Profile</h2>
+    <p><strong>User:</strong> {{ request.user.username }}</p>
+    <p><strong>Tenant:</strong> {{ tenant.name }}</p>
+    <p><strong>Roles:</strong> 
+        {% for role in roles %}
+            <span class="badge badge-info">{{ role.name }}</span>
+        {% empty %}
+            <em>No roles assigned</em>
+        {% endfor %}
+    </p>
+</div>
+
+<div class="card">
+    <h2>Your Permissions</h2>
+    <p>Permissions in this tenant:</p>
+    <ul style="margin-left: 20px;">
+        {% for perm in permissions %}
+            <li><code>{{ perm }}</code></li>
+        {% empty %}
+            <li><em>No permissions</em></li>
+        {% endfor %}
+    </ul>
+</div>
+
+<div class="card">
+    <h2>Recent Orders</h2>
+    {% if recent_orders %}
+    <table>
+        <thead>
+            <tr>
+                <th>Order #</th>
+                <th>Customer</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for order in recent_orders %}
+            <tr>
+                <td>{{ order.order_number }}</td>
+                <td>{{ order.customer_name }}</td>
+                <td>${{ order.total_amount }}</td>
+                <td><span class="badge badge-success">{{ order.status }}</span></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No orders yet.</p>
+    {% endif %}
+    <a href="{% url 'order_list' tenant.slug %}" class="btn" style="margin-top: 15px;">View All Orders</a>
+</div>
+{% endblock %}
