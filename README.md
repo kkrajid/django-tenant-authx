@@ -1,8 +1,8 @@
 # django-tenant-authx
 
-[![PyPI version](https://badge.fury.io/py/django-tenant-authx.svg)](https://badge.fury.io/py/django-tenant-authx)
-[![Python Versions](https://img.shields.io/pypi/pyversions/django-tenant-authx.svg)](https://pypi.org/project/django-tenant-authx/)
-[![Django Versions](https://img.shields.io/pypi/djversions/django-tenant-authx.svg)](https://pypi.org/project/django-tenant-authx/)
+[![CI](https://github.com/kkrajid/django-tenant-authx/actions/workflows/ci.yml/badge.svg)](https://github.com/kkrajid/django-tenant-authx/actions/workflows/ci.yml)
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/downloads/)
+[![Django 4.2+](https://img.shields.io/badge/django-4.2%2B-green.svg)](https://www.djangoproject.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A Django library providing tenant-aware authentication and authorization for multi-tenant SaaS applications.
