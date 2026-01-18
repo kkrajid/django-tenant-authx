@@ -33,9 +33,15 @@ jobs:
           pip install -e ".[dev,drf]"
 
       - name: Run tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          DJANGO_SETTINGS_MODULE: tests.settings
         run: |
           pytest tests/ -v
 
       - name: Run Security Audit
+        env:
+          PYTHONPATH: ${{ github.workspace }}
+          DJANGO_SETTINGS_MODULE: tests.settings
         run: |
           python tests/security_audit.py
